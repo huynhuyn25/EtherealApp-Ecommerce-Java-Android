@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Background"
+    tools:context=".Admin.AddProductActivity">
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Thêm Sản phẩm"
+            android:textAllCaps="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/BrownText"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/img_product_ava"
+            android:src="@drawable/makeup1"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
+        <EditText
+            android:id="@+id/edt_ten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#f7f7f9"
+            android:hint="Nhập tên sản phẩm"
+            android:textColorHint="@color/BrownText"
+            android:padding="15dp" />
+
+        <EditText
+            android:id="@+id/edt_gia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#f7f7f9"
+            android:hint="Nhập giá"
+            android:textColorHint="@color/BrownText"
+            android:padding="15dp" />
+        <EditText
+            android:id="@+id/edt_soluong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#f7f7f9"
+            android:hint="Nhập số lượng"
+            android:textColorHint="@color/BrownText"
+            android:padding="15dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chọn Nha cung cap:"
+                android:textColor="@color/BrownText"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="20dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_nhacungcap"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chọn Loai san pham:"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/BrownText"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="20dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_loaisanpham"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+            <Button
+                android:id="@+id/btn_them"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Thêm"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:background="@color/teal_700"
+                android:layout_marginHorizontal="20dp"/>
+            <Button
+                android:id="@+id/btn_huy"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="hủy"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:background="@color/teal_700"   />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">EtherealApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="Nhacungcap">
+        <item>Romand</item>
+        <item>Perfect Diary</item>
+        <item>3CE</item>
+        <item>Blackrouge</item>
+        <item>Loreal</item>
+        <item>Cocoon</item>
+        <item>Innisfree</item>
+        <item>Mamonde</item>
+    </string-array>
+
+    <string-array name="Loaisanpham">
+        <item>Makeup</item>
+        <item>Skincare</item>
+        <item>Bodycare</item>
+        <item>Haircare</item>
+    </string-array>
+</resources>

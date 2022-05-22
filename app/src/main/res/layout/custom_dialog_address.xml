@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/ed_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên người nhận"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:id="@+id/ed_sdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số điện thoại"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:id="@+id/ed_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tỉnh/Thành phố"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:id="@+id/ed_district"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Quận/Huyện"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:id="@+id/ed_ward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phường/Xã"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:id="@+id/ed_strest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Đường"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:id="@+id/ed_building"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tòa nhà"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:id="@+id/ed_number_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số nhà"
+        android:layout_margin="10dp"/>
+    <Button
+        android:id="@+id/btn_luu"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Lưu thông tin"
+        android:layout_gravity="center"/>
+</LinearLayout>
