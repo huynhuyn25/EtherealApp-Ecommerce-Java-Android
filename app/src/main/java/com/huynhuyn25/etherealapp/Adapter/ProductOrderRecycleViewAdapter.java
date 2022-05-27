@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.huynhuyn25.etherealapp.Interface.ItemClickInterface;
 import com.huynhuyn25.etherealapp.Model.Product;
+import com.huynhuyn25.etherealapp.Model.ProductCart;
 import com.huynhuyn25.etherealapp.Model.ProductOrder;
 import com.huynhuyn25.etherealapp.R;
 
@@ -29,7 +30,10 @@ public class ProductOrderRecycleViewAdapter extends RecyclerView.Adapter<Product
         this.listProductOrder = listProductOrder;
         this.itemClickInterface = itemClickInterface;
     }
-
+    public void setList(ArrayList<ProductOrder> products){
+        listProductOrder=products;
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public ProductOrderRecycleViewAdapter.ProductOrderRecycleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

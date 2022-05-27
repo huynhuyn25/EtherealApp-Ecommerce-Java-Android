@@ -50,8 +50,9 @@ public class ProductFragment extends Fragment {
     private RecyclerView recyclerViewProduct;
     private SearchView searchView;
     private FloatingActionButton floatingActionButton;
-    ArrayList<Product> listProduct= new ArrayList<>();
+    ArrayList<Product> listProduct = new ArrayList<>();
     private ProductRecycleViewAdapter productRecycleViewAdapter;
+
     public ProductFragment() {
         // Required empty public constructor
     }
@@ -96,30 +97,32 @@ public class ProductFragment extends Fragment {
 
         return view;
     }
-    public void getWidget(View view){
+
+    public void getWidget(View view) {
         recyclerViewProduct = view.findViewById(R.id.list);
         floatingActionButton = view.findViewById(R.id.fab);
         searchView = view.findViewById(R.id.search);
 //        spinnerCategory = view.findViewById(R.id.spinner_category);
 //        spinnerSort = view.findViewById(R.id.spinner_sort);
     }
-    public void getListProduct(){
+
+    public void getListProduct() {
         ProductAPI.productAPI.getAllProduct().enqueue(new Callback<ArrayList<Product>>() {
             @Override
             public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
                 try {
-                    if(!response.isSuccessful()||response.body().size()==0)
+                    if (!response.isSuccessful() || response.body().size() == 0)
                         throw new Exception();
-                    listProduct=response.body();
-                    if(productRecycleViewAdapter==null){
+                    listProduct = response.body();
+                    if (productRecycleViewAdapter == null) {
                         setRecyclerViewProductAdapter();
-                    }else {
+                    } else {
                         Log.d("TAG", "onResponse: setlist");
                         productRecycleViewAdapter.setList(listProduct);
                     }
 
-                }catch (Exception e){
-                    Log.d("test","error_null");
+                } catch (Exception e) {
+                    Log.d("test", "error_null");
                     e.printStackTrace();
                     Toast.makeText(getActivity(), "Khong co san pham ", Toast.LENGTH_LONG).show();
                 }
@@ -127,14 +130,15 @@ public class ProductFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ArrayList<Product>> call, Throwable throwable) {
-                Log.d("test","loi");
+                Log.d("test", "loi");
                 throwable.printStackTrace();
                 Toast.makeText(getActivity(), "Loi server", Toast.LENGTH_LONG).show();
             }
         });
 
     }
-    public void setRecyclerViewProductAdapter(){
+
+    public void setRecyclerViewProductAdapter() {
         productRecycleViewAdapter = new ProductRecycleViewAdapter(listProduct, new ItemClickInterface() {
             @Override
             public void OnclickItem(int pos) {
@@ -144,11 +148,12 @@ public class ProductFragment extends Fragment {
                 getContext().startActivity(intent);
             }
         });
-        recyclerViewProduct.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        recyclerViewProduct.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         recyclerViewProduct.setAdapter(productRecycleViewAdapter);
 
     }
-    public void setEvent(){
+
+    public void setEvent() {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,12 +162,14 @@ public class ProductFragment extends Fragment {
             }
         });
     }
+
     @Override
     public void onResume() {
         super.onResume();
         getListProduct();
     }
-    public void Search(View v){
+
+    public void Search(View v) {
         SearchManager searchManager = (SearchManager) v.getContext().getSystemService(Context.SEARCH_SERVICE);
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));

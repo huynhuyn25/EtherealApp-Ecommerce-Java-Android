@@ -167,7 +167,11 @@ public class ProductCartActivity extends AppCompatActivity {
                         try {
                             if(!response.isSuccessful()||response.body()==null)
                                 throw new Exception();
-                            productCartRecycleViewAdapter.notifyDataSetChanged();
+                            cart =response.body();
+                            tvTotal.setText("Tổng tiền: "+Double.toString(cart.getTotal()));
+                            listProductCart = (ArrayList) cart.getListProductCart();
+
+                            productCartRecycleViewAdapter.setList(listProductCart);
                             dialog.dismiss();
                             Toast.makeText(ProductCartActivity.this, "Đã sua sản phẩm vào giỏ", Toast.LENGTH_LONG).show();
                             Log.d("test",Double.toString(response.body().getTotal()));
@@ -198,7 +202,10 @@ public class ProductCartActivity extends AppCompatActivity {
                 try {
                     if(!response.isSuccessful()||response.body()==false)
                         throw new Exception();
-                    productCartRecycleViewAdapter.notifyDataSetChanged();
+                    cart.setTotal(cart.getTotal()-listProductCart.get(pos).getProduct().getPrice()*listProductCart.get(pos).getSoLuong());
+                    tvTotal.setText("Tổng tiền: "+Double.toString(cart.getTotal()));
+                    listProductCart.remove(pos);
+                    productCartRecycleViewAdapter.setList(listProductCart);
                     Toast.makeText(ProductCartActivity.this, "Đã xoa sản phẩm ", Toast.LENGTH_LONG).show();
 
                 }catch (Exception e){

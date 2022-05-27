@@ -30,7 +30,7 @@ import retrofit2.Response;
 public class SuccessActivity extends AppCompatActivity {
     private RecyclerView recyclerViewProduct;
     ArrayList<Product> listProduct;
-    private Button btnChitiet,btnHome;
+    private Button btnChitiet, btnHome;
     private Order order;
 
     @Override
@@ -42,15 +42,17 @@ public class SuccessActivity extends AppCompatActivity {
         setEvent();
 
     }
-    public void getWidget(){
-        btnChitiet =findViewById(R.id.btn_chitiet);
-        btnHome =findViewById(R.id.btn_back);
+
+    public void getWidget() {
+        btnChitiet = findViewById(R.id.btn_chitiet);
+        btnHome = findViewById(R.id.btn_back);
         recyclerViewProduct = findViewById(R.id.list_product_more);
         Intent intent = getIntent();
         order = (Order) intent.getSerializableExtra("order");
-        Log.d("TAG", "getWidget: "+order.getStatus());
+        Log.d("TAG", "getWidget: " + order.getStatus());
     }
-    public void setRecyclerViewProductAdapter(){
+
+    public void setRecyclerViewProductAdapter() {
         ProductRecycleViewAdapter productRecycleViewAdapter = new ProductRecycleViewAdapter(listProduct, new ItemClickInterface() {
             @Override
             public void OnclickItem(int pos) {
@@ -61,39 +63,40 @@ public class SuccessActivity extends AppCompatActivity {
             }
         });
         recyclerViewProduct.setAdapter(productRecycleViewAdapter);
-        recyclerViewProduct.setLayoutManager(new GridLayoutManager(SuccessActivity.this,2){
+        recyclerViewProduct.setLayoutManager(new GridLayoutManager(SuccessActivity.this, 2) {
             @Override
             public boolean canScrollVertically() {
                 return false;
             }
         });
     }
-    public void getListProduct(){
+
+    public void getListProduct() {
         listProduct = new ArrayList<>();
         ProductAPI.productAPI.getAllProduct().enqueue(new Callback<ArrayList<Product>>() {
             @Override
             public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
                 try {
-                    if(!response.isSuccessful()||response.body().size()==0)
+                    if (!response.isSuccessful() || response.body().size() == 0)
                         throw new Exception();
-                    listProduct=response.body();
+                    listProduct = response.body();
                     setRecyclerViewProductAdapter();
-                }catch (Exception e){
-                    Log.d("test","error_null");
+                } catch (Exception e) {
+                    Log.d("test", "error_null");
                     Toast.makeText(SuccessActivity.this, "Khong co san pham ", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ArrayList<Product>> call, Throwable throwable) {
-                Log.d("test","loi");
+                Log.d("test", "loi");
                 throwable.printStackTrace();
                 Toast.makeText(SuccessActivity.this, "Loi server", Toast.LENGTH_LONG).show();
             }
         });
-
     }
-    public void setEvent(){
+
+    public void setEvent() {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
